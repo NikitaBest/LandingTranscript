@@ -40,117 +40,37 @@ export default function Hero() {
             </motion.div>
             
             <div className="relative inline-block w-full">
-              {/* Massive Background Element - Audio/AI Fusion */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[300%] pointer-events-none -z-10 flex items-center justify-center opacity-40 md:opacity-100">
-                <svg viewBox="0 0 800 400" className="w-full h-full text-primary/5">
-                  <defs>
-                    <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-                      <stop offset="50%" stopColor="currentColor" stopOpacity="1" />
-                      <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-                    </linearGradient>
-                    <mask id="fadeMask">
-                       <rect x="0" y="0" width="800" height="400" fill="url(#waveGradient)" />
-                    </mask>
-                  </defs>
-                  
-                  {/* Abstract Microphone Shape - Central Pillar */}
-                  <g className="translate-x-[400] translate-y-[200]">
-                     <motion.path 
-                       d="M-40,-80 L40,-80 L40,80 L-40,80 Z" 
-                       fill="none" 
-                       stroke="currentColor" 
-                       strokeWidth="2" 
-                       className="text-primary/10"
-                       rx="40"
-                       initial={{ pathLength: 0, opacity: 0 }}
-                       animate={{ pathLength: 1, opacity: 1 }}
-                       transition={{ duration: 2, ease: "easeInOut" }}
-                     />
-                     <motion.path 
-                        d="M-20,100 L20,100 M0,80 L0,140 M-30,140 L30,140"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        className="text-primary/10"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 2, delay: 0.5 }}
-                     />
-                  </g>
-
-                  {/* Animated Sound Waves / AI Data Flow */}
-                  {[...Array(20)].map((_, i) => (
-                    <motion.g key={i} className="translate-x-[400] translate-y-[200]">
-                       {/* Left Wave */}
-                       <motion.rect 
-                         x={-60 - (i * 12)} 
-                         y={-50} 
-                         width="4" 
-                         height="100" 
-                         rx="2"
-                         fill="currentColor"
-                         className="text-primary/10"
-                         initial={{ scaleY: 0.1, opacity: 0 }}
-                         animate={{ 
-                           scaleY: [0.2, 1, 0.2],
-                           opacity: [0, 0.5, 0]
-                         }}
-                         transition={{ 
-                           duration: 3, 
-                           repeat: Infinity, 
-                           delay: i * 0.1,
-                           ease: "easeInOut"
-                         }}
-                       />
-                       {/* Right Wave */}
-                       <motion.rect 
-                         x={60 + (i * 12)} 
-                         y={-50} 
-                         width="4" 
-                         height="100" 
-                         rx="2"
-                         fill="currentColor"
-                         className="text-primary/10"
-                         initial={{ scaleY: 0.1, opacity: 0 }}
-                         animate={{ 
-                           scaleY: [0.2, 1, 0.2],
-                           opacity: [0, 0.5, 0]
-                         }}
-                         transition={{ 
-                           duration: 3, 
-                           repeat: Infinity, 
-                           delay: i * 0.1,
-                           ease: "easeInOut"
-                         }}
-                       />
-                    </motion.g>
-                  ))}
-                  
-                  {/* Floating AI Nodes connecting the waves */}
-                  {[...Array(15)].map((_, i) => (
-                    <motion.circle 
-                      key={`node-${i}`}
-                      r="2"
-                      fill="currentColor"
-                      className="text-primary/30"
-                      initial={{ 
-                        x: 400 + (Math.random() * 600 - 300),
-                        y: 200 + (Math.random() * 200 - 100),
-                        opacity: 0
-                      }}
-                      animate={{ 
-                        opacity: [0, 1, 0],
-                        scale: [0, 1.5, 0]
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        delay: Math.random() * 2,
-                        ease: "easeInOut"
-                      }}
-                    />
-                  ))}
-                </svg>
+              {/* Audio Pulse Background */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[150%] pointer-events-none -z-10 flex items-center justify-center opacity-20">
+                <div className="flex items-center justify-center gap-1 md:gap-2 h-32 md:h-48 w-full max-w-2xl px-4">
+                  {[...Array(40)].map((_, i) => {
+                    // Generate a "voice pattern" look by varying heights
+                    const center = 20;
+                    const dist = Math.abs(i - center);
+                    const baseHeight = Math.max(10, 100 - (dist * 4)); 
+                    
+                    return (
+                      <motion.div
+                        key={i}
+                        className="w-1.5 md:w-2 bg-foreground rounded-full"
+                        initial={{ height: baseHeight * 0.2 }}
+                        animate={{ 
+                          height: [
+                            baseHeight * 0.4, 
+                            baseHeight * (0.8 + Math.random() * 0.5), 
+                            baseHeight * 0.4
+                          ] 
+                        }}
+                        transition={{
+                          duration: 0.8 + Math.random() * 0.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: i * 0.05
+                        }}
+                      />
+                    );
+                  })}
+                </div>
               </div>
 
               <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-foreground tracking-tight relative z-10">
