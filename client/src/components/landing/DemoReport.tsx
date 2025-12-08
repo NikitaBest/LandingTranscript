@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import reportImage from "@assets/generated_images/dental_medical_report_ui_mockup.png";
+import reportScreen from "@assets/report_screen.png";
+import { MacbookFrame } from "@/components/ui/macbook-frame";
 
 export default function DemoReport() {
   return (
@@ -50,17 +51,10 @@ export default function DemoReport() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-             {/* Abstract Background Blotches */}
-             <div className="absolute -top-10 -right-10 w-64 h-64 bg-gray-100 rounded-full blur-3xl opacity-50" />
-             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-gray-200 rounded-full blur-3xl opacity-50" />
-
-            <div className="relative rounded-xl overflow-hidden shadow-2xl border border-border">
-              <img 
-                src={reportImage} 
-                alt="Medical Report Example" 
-                className="w-full h-auto"
-              />
-            </div>
+            <MacbookFrame 
+              src={reportScreen} 
+              alt="Пример медицинского отчёта в интерфейсе" 
+            />
           </motion.div>
         </div>
       </div>

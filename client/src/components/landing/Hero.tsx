@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroImage from "@assets/generated_images/dental_ai_interface_process_flow.png";
+import recordScreen from "@assets/record_screen.png";
+import { MacbookFrame } from "@/components/ui/macbook-frame";
 
 export default function Hero() {
   return (
@@ -44,15 +45,10 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative max-w-5xl mx-auto"
         >
-          <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-white">
-            <img
-              src={heroImage}
-              alt="Interface Mockup"
-              className="w-full h-auto object-cover"
-            />
-            {/* Overlay Gradient for smooth blending if needed */}
-            <div className="absolute inset-0 bg-linear-to-t from-white/10 to-transparent pointer-events-none" />
-          </div>
+          <MacbookFrame 
+            src={recordScreen} 
+            alt="Интерфейс записи консультации" 
+          />
         </motion.div>
       </div>
     </section>
