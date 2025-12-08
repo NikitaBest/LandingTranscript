@@ -39,7 +39,120 @@ export default function Hero() {
               AI-ассистент для стоматологов
             </motion.div>
             
-            <div className="relative inline-block">
+            <div className="relative inline-block w-full">
+              {/* Massive Background Element - Audio/AI Fusion */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[300%] pointer-events-none -z-10 flex items-center justify-center opacity-40 md:opacity-100">
+                <svg viewBox="0 0 800 400" className="w-full h-full text-primary/5">
+                  <defs>
+                    <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
+                      <stop offset="50%" stopColor="currentColor" stopOpacity="1" />
+                      <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                    </linearGradient>
+                    <mask id="fadeMask">
+                       <rect x="0" y="0" width="800" height="400" fill="url(#waveGradient)" />
+                    </mask>
+                  </defs>
+                  
+                  {/* Abstract Microphone Shape - Central Pillar */}
+                  <g className="translate-x-[400] translate-y-[200]">
+                     <motion.path 
+                       d="M-40,-80 L40,-80 L40,80 L-40,80 Z" 
+                       fill="none" 
+                       stroke="currentColor" 
+                       strokeWidth="2" 
+                       className="text-primary/10"
+                       rx="40"
+                       initial={{ pathLength: 0, opacity: 0 }}
+                       animate={{ pathLength: 1, opacity: 1 }}
+                       transition={{ duration: 2, ease: "easeInOut" }}
+                     />
+                     <motion.path 
+                        d="M-20,100 L20,100 M0,80 L0,140 M-30,140 L30,140"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="text-primary/10"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 2, delay: 0.5 }}
+                     />
+                  </g>
+
+                  {/* Animated Sound Waves / AI Data Flow */}
+                  {[...Array(20)].map((_, i) => (
+                    <motion.g key={i} className="translate-x-[400] translate-y-[200]">
+                       {/* Left Wave */}
+                       <motion.rect 
+                         x={-60 - (i * 12)} 
+                         y={-50} 
+                         width="4" 
+                         height="100" 
+                         rx="2"
+                         fill="currentColor"
+                         className="text-primary/10"
+                         initial={{ scaleY: 0.1, opacity: 0 }}
+                         animate={{ 
+                           scaleY: [0.2, 1, 0.2],
+                           opacity: [0, 0.5, 0]
+                         }}
+                         transition={{ 
+                           duration: 3, 
+                           repeat: Infinity, 
+                           delay: i * 0.1,
+                           ease: "easeInOut"
+                         }}
+                       />
+                       {/* Right Wave */}
+                       <motion.rect 
+                         x={60 + (i * 12)} 
+                         y={-50} 
+                         width="4" 
+                         height="100" 
+                         rx="2"
+                         fill="currentColor"
+                         className="text-primary/10"
+                         initial={{ scaleY: 0.1, opacity: 0 }}
+                         animate={{ 
+                           scaleY: [0.2, 1, 0.2],
+                           opacity: [0, 0.5, 0]
+                         }}
+                         transition={{ 
+                           duration: 3, 
+                           repeat: Infinity, 
+                           delay: i * 0.1,
+                           ease: "easeInOut"
+                         }}
+                       />
+                    </motion.g>
+                  ))}
+                  
+                  {/* Floating AI Nodes connecting the waves */}
+                  {[...Array(15)].map((_, i) => (
+                    <motion.circle 
+                      key={`node-${i}`}
+                      r="2"
+                      fill="currentColor"
+                      className="text-primary/30"
+                      initial={{ 
+                        x: 400 + (Math.random() * 600 - 300),
+                        y: 200 + (Math.random() * 200 - 100),
+                        opacity: 0
+                      }}
+                      animate={{ 
+                        opacity: [0, 1, 0],
+                        scale: [0, 1.5, 0]
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        delay: Math.random() * 2,
+                        ease: "easeInOut"
+                      }}
+                    />
+                  ))}
+                </svg>
+              </div>
+
               <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-foreground tracking-tight relative z-10">
                 AI-сервис, который <br/>
                 превращает консультации <br/>
@@ -47,29 +160,6 @@ export default function Hero() {
                   в готовые отчёты
                 </span>
               </h1>
-              
-              {/* Stylish Element - Abstract AI Orbit */}
-              <motion.div 
-                className="absolute -top-8 -right-12 md:-right-24 w-24 h-24 md:w-32 md:h-32 pointer-events-none hidden md:block"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              >
-                 <svg viewBox="0 0 100 100" className="w-full h-full animate-[spin_10s_linear_infinite]">
-                    <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="1" fill="none" className="text-gray-200" strokeDasharray="4 4" />
-                    <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="1" fill="none" className="text-gray-300" />
-                 </svg>
-                 <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-3 h-3 bg-foreground rounded-full animate-ping" />
-                 </div>
-                 {/* Floating particle */}
-                 <motion.div 
-                    className="absolute top-0 left-1/2 w-4 h-4 bg-gray-900 rounded-full"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    style={{ originY: "4rem", originX: "0.5rem" }}
-                 />
-              </motion.div>
             </div>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed font-light">
