@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import recordScreen from "@assets/record_screen.png";
 import { MacbookFrame } from "@/components/ui/macbook-frame";
 import { useRef } from "react";
+import { Mic } from "lucide-react";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,7 +13,6 @@ export default function Hero() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  // Removed opacity fade to keep image visible longer
   
   return (
     <section ref={containerRef} className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden min-h-screen flex flex-col justify-center">
@@ -39,30 +39,40 @@ export default function Hero() {
               AI-ассистент для стоматологов
             </motion.div>
             
-            <div className="relative inline-block w-full">
-              {/* Audio Pulse Background */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[150%] pointer-events-none -z-10 flex items-center justify-center opacity-20">
-                <div className="flex items-center justify-center gap-1 md:gap-2 h-32 md:h-48 w-full max-w-2xl px-4">
-                  {[...Array(40)].map((_, i) => {
+            {/* Audio Pulse & Mic Section - Above Title */}
+            <div className="flex items-center justify-center gap-6 mb-8 h-16">
+               {/* Microphone Icon */}
+               <motion.div 
+                 initial={{ scale: 0, opacity: 0 }}
+                 animate={{ scale: 1, opacity: 1 }}
+                 transition={{ delay: 0.3, duration: 0.5 }}
+                 className="w-12 h-12 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center shadow-sm shrink-0"
+               >
+                 <Mic className="w-5 h-5 text-gray-900" />
+               </motion.div>
+
+               {/* Waveform Visualization */}
+               <div className="flex items-center justify-center gap-1 h-12">
+                  {[...Array(24)].map((_, i) => {
                     // Generate a "voice pattern" look by varying heights
-                    const center = 20;
+                    const center = 12;
                     const dist = Math.abs(i - center);
-                    const baseHeight = Math.max(10, 100 - (dist * 4)); 
+                    const baseHeight = Math.max(4, 40 - (dist * 3)); 
                     
                     return (
                       <motion.div
                         key={i}
-                        className="w-1.5 md:w-2 bg-foreground rounded-full"
+                        className="w-1 bg-gray-900 rounded-full"
                         initial={{ height: baseHeight * 0.2 }}
                         animate={{ 
                           height: [
-                            baseHeight * 0.4, 
-                            baseHeight * (0.8 + Math.random() * 0.5), 
-                            baseHeight * 0.4
+                            baseHeight * 0.3, 
+                            baseHeight * (0.8 + Math.random() * 0.4), 
+                            baseHeight * 0.3
                           ] 
                         }}
                         transition={{
-                          duration: 0.8 + Math.random() * 0.5,
+                          duration: 0.6 + Math.random() * 0.4,
                           repeat: Infinity,
                           ease: "easeInOut",
                           delay: i * 0.05
@@ -70,17 +80,16 @@ export default function Hero() {
                       />
                     );
                   })}
-                </div>
-              </div>
-
-              <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-foreground tracking-tight relative z-10">
-                AI-сервис, который <br/>
-                превращает консультации <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">
-                  в готовые отчёты
-                </span>
-              </h1>
+               </div>
             </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-foreground tracking-tight relative z-10">
+              AI-сервис, который <br/>
+              превращает консультации <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">
+                в готовые отчёты
+              </span>
+            </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed font-light">
               Запишите консультацию — сервис сам расшифрует речь, структурирует
