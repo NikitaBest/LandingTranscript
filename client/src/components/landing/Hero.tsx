@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
-import recordScreen from "@assets/record_screen.png";
-import { MacbookFrame } from "@/components/ui/macbook-frame";
 import { useRef } from "react";
 import { Mic } from "lucide-react";
 
@@ -114,10 +112,15 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.4, type: "spring", stiffness: 50 }}
           className="relative max-w-5xl mx-auto perspective-1000"
         >
-          <MacbookFrame 
-            src={recordScreen} 
-            alt="Интерфейс записи консультации" 
-          />
+          <div className="relative w-full max-w-[900px] mx-auto">
+            <div className="relative bg-[#1a1a1a] rounded-[24px] pt-[2%] px-[2%] pb-[3%] shadow-2xl border-[4px] border-[#2a2a2a]">
+              <img 
+                src="/1.svg" 
+                alt="Интерфейс записи консультации" 
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

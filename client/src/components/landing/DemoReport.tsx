@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import reportScreen from "@assets/report_screen.png";
-import { MacbookFrame } from "@/components/ui/macbook-frame";
 
 export default function DemoReport() {
   return (
@@ -62,10 +60,15 @@ export default function DemoReport() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative perspective-1000"
           >
-            <MacbookFrame 
-              src={reportScreen} 
-              alt="Пример медицинского отчёта в интерфейсе" 
-            />
+            <div className="relative w-full max-w-[900px] mx-auto">
+              <div className="relative bg-[#1a1a1a] rounded-[24px] pt-[2%] px-[2%] pb-[3%] shadow-2xl border-[4px] border-[#2a2a2a]">
+                <img 
+                  src="/2.svg" 
+                  alt="Пример медицинского отчёта в интерфейсе" 
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
