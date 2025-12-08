@@ -1,0 +1,67 @@
+import { Link } from "wouter";
+
+export default function Footer() {
+  return (
+    <footer id="footer" className="bg-white border-t border-border pt-16 pb-8">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="col-span-1 md:col-span-1">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-white w-5 h-5"
+                >
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <line x1="12" x2="12" y1="19" y2="22" />
+                </svg>
+              </div>
+              <span className="font-heading font-bold text-xl tracking-tight text-foreground">
+                Транскриптор
+              </span>
+            </div>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Умный помощник для стоматологов. Автоматизируем рутину, чтобы вы
+              могли сосредоточиться на лечении.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-4">Продукт</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="#features" className="hover:text-primary transition-colors">Функции</a></li>
+              <li><a href="#pricing" className="hover:text-primary transition-colors">Тарифы</a></li>
+              <li><a href="#demo" className="hover:text-primary transition-colors">Примеры</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-4">Компания</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">О нас</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Контакты</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Политика конфиденциальности</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold mb-4">Поддержка</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">Help Center</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Telegram Bot</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Email Support</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} Транскриптор. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
