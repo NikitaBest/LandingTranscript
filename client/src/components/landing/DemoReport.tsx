@@ -51,8 +51,8 @@ export default function DemoReport() {
             className="relative"
           >
              {/* Abstract Background Blotches */}
-             <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50" />
-             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-indigo-100 rounded-full blur-3xl opacity-50" />
+             <div className="absolute -top-10 -right-10 w-64 h-64 bg-gray-100 rounded-full blur-3xl opacity-50" />
+             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-gray-200 rounded-full blur-3xl opacity-50" />
 
             <div className="relative rounded-xl overflow-hidden shadow-2xl border border-border">
               <img 

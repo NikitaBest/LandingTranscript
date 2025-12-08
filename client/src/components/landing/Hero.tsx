@@ -8,7 +8,7 @@ export default function Hero() {
       {/* Background Decor */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl -z-10 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/5 rounded-full blur-[80px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gray-400/5 rounded-full blur-[80px]" />
       </div>
 
       <div className="container mx-auto px-4">

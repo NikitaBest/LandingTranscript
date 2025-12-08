@@ -9,43 +9,42 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Medical Blue Theme - Trustworthy, Clean, Modern */
-  /* Primary Blue: H: 215, S: 90%, L: 52% (#0E73F6 roughly) */
+  /* Monochrome / Black & White Theme */
   --color-background: hsl(0 0% 100%); /* White */
-  --color-foreground: hsl(215 25% 20%); /* Dark Blue-Grey Text */
+  --color-foreground: hsl(0 0% 10%); /* Almost Black text */
 
   --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(215 25% 20%);
+  --color-card-foreground: hsl(0 0% 10%);
 
   --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(215 25% 20%);
+  --color-popover-foreground: hsl(0 0% 10%);
 
-  --color-primary: hsl(220 90% 56%); /* Bright Medical Blue */
+  --color-primary: hsl(0 0% 10%); /* Almost Black */
   --color-primary-foreground: hsl(0 0% 100%);
 
-  --color-secondary: hsl(210 30% 96%); /* Very Light Blue-Grey */
-  --color-secondary-foreground: hsl(220 90% 40%);
+  --color-secondary: hsl(0 0% 96%); /* Light Gray */
+  --color-secondary-foreground: hsl(0 0% 10%);
 
-  --color-muted: hsl(210 20% 96%);
-  --color-muted-foreground: hsl(215 20% 50%);
+  --color-muted: hsl(0 0% 96%);
+  --color-muted-foreground: hsl(0 0% 45%);
 
-  --color-accent: hsl(210 30% 96%);
-  --color-accent-foreground: hsl(220 90% 56%);
+  --color-accent: hsl(0 0% 96%);
+  --color-accent-foreground: hsl(0 0% 10%);
 
-  --color-destructive: hsl(0 84% 60%);
+  --color-destructive: hsl(0 0% 20%);
   --color-destructive-foreground: hsl(0 0% 98%);
 
-  --color-border: hsl(220 15% 90%);
-  --color-input: hsl(220 15% 90%);
-  --color-ring: hsl(220 90% 56%);
+  --color-border: hsl(0 0% 90%);
+  --color-input: hsl(0 0% 90%);
+  --color-ring: hsl(0 0% 10%);
 
-  --color-chart-1: hsl(220 90% 56%);
-  --color-chart-2: hsl(190 80% 50%);
-  --color-chart-3: hsl(250 80% 60%);
-  --color-chart-4: hsl(340 70% 60%);
-  --color-chart-5: hsl(30 80% 60%);
+  --color-chart-1: hsl(0 0% 10%);
+  --color-chart-2: hsl(0 0% 30%);
+  --color-chart-3: hsl(0 0% 50%);
+  --color-chart-4: hsl(0 0% 70%);
+  --color-chart-5: hsl(0 0% 90%);
 
-  --radius: 1rem; /* Rounded corners as requested */
+  --radius: 1rem;
 
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Plus Jakarta Sans', sans-serif;
@@ -63,12 +62,11 @@
   }
 }
 
-/* Custom Utilities for Premium Glass/Depth effects */
 @layer utilities {
   .glass-panel {
     @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-linear-to-r from-primary to-blue-400;
+    @apply bg-clip-text text-transparent bg-linear-to-r from-primary to-gray-500;
   }
 }
