@@ -16,48 +16,59 @@ import { motion } from "framer-motion";
 
 export default function FeaturesGrid() {
   const features = [
-    { icon: <Mic />, title: "Запись аудио онлайн" },
-    { icon: <Bot />, title: "Автоматическая транскрибация" },
-    { icon: <BrainCircuit />, title: "LLM-обработка и формирование отчёта" },
-    { icon: <Layout />, title: "Структурированные поля отчёта" },
-    { icon: <Edit3 />, title: "Редактирование текста" },
-    { icon: <RefreshCw />, title: "Повторная обработка LLM" },
-    { icon: <FolderOpen />, title: "Карточки пациентов" },
-    { icon: <History />, title: "История консультаций" },
-    { icon: <FileText />, title: "PDF экспорт" },
-    { icon: <Link2 />, title: "Публичная ссылка для пациента" },
-    { icon: <Smartphone />, title: "Web + Telegram Mini App" },
-    { icon: <ShieldCheck />, title: "Защита данных" },
+    { icon: <Mic />, title: "Запись онлайн", desc: "Высокое качество" },
+    { icon: <Bot />, title: "Авто-транскрибация", desc: "Мгновенный текст" },
+    { icon: <BrainCircuit />, title: "LLM-обработка", desc: "Умный анализ" },
+    { icon: <Layout />, title: "Структура", desc: "Чёткие поля" },
+    { icon: <Edit3 />, title: "Редактор", desc: "Быстрые правки" },
+    { icon: <RefreshCw />, title: "Регенерация", desc: "Повторный анализ" },
+    { icon: <FolderOpen />, title: "Карточки", desc: "База пациентов" },
+    { icon: <History />, title: "История", desc: "Архив записей" },
+    { icon: <FileText />, title: "PDF Экспорт", desc: "Готовые документы" },
+    { icon: <Link2 />, title: "Публичные ссылки", desc: "Доступ пациенту" },
+    { icon: <Smartphone />, title: "Multi-platform", desc: "Web + Telegram" },
+    { icon: <ShieldCheck />, title: "Защита", desc: "Шифрование" },
   ];
 
   return (
-    <section className="py-24 bg-secondary/20">
+    <section className="py-32 bg-white border-y border-border/40">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Основные функции
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Всё, что нужно для эффективной работы с медицинской документацией
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+              Функционал системы
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Полный набор инструментов для автоматизации медицинской документации.
+            </p>
+          </div>
+          <div className="hidden md:block">
+            <div className="text-right text-sm font-mono text-muted-foreground">
+              SYSTEM_VERSION: 2.0.4<br/>
+              STATUS: ONLINE
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="bg-white p-6 rounded-xl shadow-sm border border-border/50 flex flex-col items-center text-center hover:shadow-md hover:border-primary/20 transition-all cursor-default"
+              className="group relative bg-secondary/5 p-8 hover:bg-secondary/20 transition-colors border border-transparent hover:border-border/50 overflow-hidden"
             >
-              <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center text-primary mb-4">
+              {/* Corner Accents on Hover */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+              
+              <div className="mb-6 text-muted-foreground group-hover:text-primary transition-colors">
                 {feature.icon}
               </div>
-              <span className="font-semibold text-sm md:text-base">
-                {feature.title}
-              </span>
+              <h3 className="font-bold text-base md:text-lg mb-2">{feature.title}</h3>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider">{feature.desc}</p>
             </motion.div>
           ))}
         </div>

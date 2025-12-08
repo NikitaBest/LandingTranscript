@@ -12,20 +12,26 @@ import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary">
-      <Navbar />
-      <main>
-        <Hero />
-        <ProblemSolution />
-        <Benefits />
-        <HowItWorks />
-        <DemoReport />
-        <FeaturesGrid />
-        <BenefitsSummary />
-        <Pricing />
-        <FAQ />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/10 selection:text-primary relative overflow-hidden">
+      {/* Global Tech Grid Background - Fixed */}
+      <div className="fixed inset-0 bg-tech-grid pointer-events-none z-0 opacity-60" />
+      
+      {/* Content Wrapper */}
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <Hero />
+          <ProblemSolution />
+          <Benefits />
+          <HowItWorks />
+          <DemoReport />
+          <FeaturesGrid />
+          <BenefitsSummary />
+          <Pricing />
+          <FAQ />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
