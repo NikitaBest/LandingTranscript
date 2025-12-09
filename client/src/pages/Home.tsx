@@ -6,7 +6,7 @@ import HowItWorks from "@/components/landing/HowItWorks";
 import DemoReport from "@/components/landing/DemoReport";
 import FeaturesGrid from "@/components/landing/FeaturesGrid";
 import BenefitsSummary from "@/components/landing/BenefitsSummary";
-import Pricing from "@/components/landing/Pricing";
+// import Pricing from "@/components/landing/Pricing"; // Временно скрыто
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/landing/Footer";
 
@@ -27,7 +27,7 @@ export default function Home() {
           <DemoReport />
           <FeaturesGrid />
           <BenefitsSummary />
-          <Pricing />
+          {/* <Pricing /> */}
           <FAQ />
         </main>
         <Footer />
