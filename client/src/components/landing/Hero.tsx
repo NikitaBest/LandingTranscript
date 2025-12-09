@@ -113,13 +113,11 @@ export default function Hero() {
           className="relative max-w-5xl mx-auto perspective-1000"
         >
           <div className="relative w-full max-w-[900px] mx-auto">
-            <div className="relative bg-[#1a1a1a] rounded-[24px] pt-[2%] px-[2%] pb-[3%] shadow-2xl border-[4px] border-[#2a2a2a]">
-              <img 
-                src="/1.svg" 
-                alt="Интерфейс записи консультации" 
-                className="w-full h-auto"
-              />
-            </div>
+            <img 
+              src="/1.svg" 
+              alt="Интерфейс записи консультации" 
+              className="w-full h-auto"
+            />
           </div>
         </motion.div>
       </div>
