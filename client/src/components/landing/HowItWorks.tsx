@@ -25,14 +25,14 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-32 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="mb-20">
+    <section id="how-it-works" className="py-16 sm:py-24 md:py-32 bg-background relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="mb-12 md:mb-20">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mb-6 tracking-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tight"
           >
             Как это работает
           </motion.h2>
@@ -51,7 +51,7 @@ export default function HowItWorks() {
             />
           </div>
 
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -62,13 +62,13 @@ export default function HowItWorks() {
                 className="relative group"
               >
                 {/* Step Marker */}
-                <div className="w-24 h-24 mb-8 bg-background border border-border/50 rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300 group-hover:-translate-y-2 relative z-10">
-                  <span className="text-3xl font-bold text-border group-hover:text-primary transition-colors font-mono">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-6 md:mb-8 bg-background border border-border/50 rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300 group-hover:-translate-y-2 relative z-10">
+                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-border group-hover:text-primary transition-colors font-mono">
                     {step.id}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{step.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 md:mb-3 group-hover:text-primary transition-colors">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm md:text-base border-l-2 border-transparent pl-0 group-hover:border-primary/20 group-hover:pl-4 transition-all duration-300">
                   {step.desc}
                 </p>

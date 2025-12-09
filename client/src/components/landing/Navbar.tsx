@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-border/40">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
@@ -41,7 +41,7 @@ export default function Navbar() {
               <line x1="12" x2="12" y1="19" y2="22" />
             </svg>
           </div>
-          <span className="font-heading font-bold text-xl tracking-tight text-foreground">
+          <span className="font-heading font-bold text-lg sm:text-xl tracking-tight text-foreground">
             Транскриптор
           </span>
         </div>
