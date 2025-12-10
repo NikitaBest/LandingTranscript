@@ -6,22 +6,14 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="text-white w-5 h-5"
-                >
-                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                  <line x1="12" x2="12" y1="19" y2="22" />
-                </svg>
-              </div>
+            <div className="flex items-center gap-2 sm:gap-3 mb-6">
+              <img 
+                src="/OdontaLogo.svg" 
+                alt="Odonta AI Logo" 
+                className="w-8 h-8 sm:w-10 sm:h-10"
+              />
               <span className="font-heading font-bold text-xl tracking-tight text-foreground">
-                Транскриптор
+                Odonta AI
               </span>
             </div>
             <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
@@ -59,7 +51,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-border pt-6 md:pt-8 text-center text-xs sm:text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Транскриптор. Все права защищены.</p>
+          <p>© {new Date().getFullYear()} Odonta AI. Все права защищены.</p>
         </div>
       </div>
     </footer>
