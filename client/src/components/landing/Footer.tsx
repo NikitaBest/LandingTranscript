@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -43,9 +44,17 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-3 md:mb-4 text-sm sm:text-base">Поддержка</h4>
             <ul className="space-y-2 md:space-y-3 text-xs sm:text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Telegram Bot</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Email Support</a></li>
+              <li>
+                <a 
+                  href="https://t.me/odonta_ai_support" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors inline-flex items-center gap-2"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Telegram </span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
