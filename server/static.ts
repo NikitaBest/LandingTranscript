@@ -3,6 +3,8 @@ import fs from "fs";
 import path from "path";
 
 export function serveStatic(app: Express) {
+  // In production, after build, __dirname points to dist/
+  // Client is built to dist/public
   const distPath = path.resolve(__dirname, "public");
   if (!fs.existsSync(distPath)) {
     throw new Error(
