@@ -63,8 +63,14 @@ export default function FAQ() {
               Экономьте время, улучшайте качество документации и давайте
               пациентам чёткие рекомендации.
             </p>
-            <Button size="lg" className="rounded-full px-6 sm:px-8 md:px-10 h-12 sm:h-14 text-base sm:text-lg shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all w-full sm:w-auto">
-              Перейти в приложение
+            <Button 
+              size="lg" 
+              asChild
+              className="rounded-full px-6 sm:px-8 md:px-10 h-12 sm:h-14 text-base sm:text-lg shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all w-full sm:w-auto"
+            >
+              <a href="https://ai.odonta.ru/" target="_blank" rel="noopener noreferrer">
+                Перейти в приложение
+              </a>
             </Button>
           </div>
         </div>

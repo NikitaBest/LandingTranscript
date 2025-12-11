@@ -53,8 +53,13 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden md:block">
-          <Button className="rounded-full px-6 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all">
-            Перейти в приложение
+          <Button 
+            asChild
+            className="rounded-full px-6 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all"
+          >
+            <a href="https://ai.odonta.ru/" target="_blank" rel="noopener noreferrer">
+              Перейти в приложение
+            </a>
           </Button>
         </div>
 
@@ -77,8 +82,13 @@ export default function Navbar() {
                     {link.name}
                   </button>
                 ))}
-                <Button className="w-full rounded-full">
-                  Перейти в приложение
+                <Button 
+                  asChild
+                  className="w-full rounded-full"
+                >
+                  <a href="https://ai.odonta.ru/" target="_blank" rel="noopener noreferrer">
+                    Перейти в приложение
+                  </a>
                 </Button>
               </div>
             </SheetContent>

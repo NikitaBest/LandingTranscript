@@ -97,9 +97,12 @@ export default function Hero() {
             <div className="flex items-center justify-center gap-4 px-4">
               <Button
                 size="lg"
+                asChild
                 className="rounded-full px-6 sm:px-8 md:px-10 h-12 sm:h-14 text-base sm:text-lg shadow-2xl shadow-primary/10 hover:shadow-primary/20 transition-all hover:scale-105 bg-primary text-primary-foreground w-full sm:w-auto"
               >
-                Перейти в приложение
+                <a href="https://ai.odonta.ru/" target="_blank" rel="noopener noreferrer">
+                  Перейти в приложение
+                </a>
               </Button>
             </div>
           </motion.div>

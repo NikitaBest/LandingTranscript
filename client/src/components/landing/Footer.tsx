@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer id="footer" className="bg-white border-t border-border pt-12 sm:pt-16 pb-6 sm:pb-8">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+        <div className="grid sm:grid-cols-2 gap-8 md:gap-12 mb-8 md:mb-12">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 sm:gap-3 mb-6">
               <img 
@@ -21,24 +21,6 @@ export default function Footer() {
               Умный помощник для стоматологов. Автоматизируем рутину, чтобы вы
               могли сосредоточиться на лечении.
             </p>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-3 md:mb-4 text-sm sm:text-base">Продукт</h4>
-            <ul className="space-y-2 md:space-y-3 text-xs sm:text-sm text-muted-foreground">
-              <li><a href="#features" className="hover:text-primary transition-colors">Функции</a></li>
-              <li><a href="#pricing" className="hover:text-primary transition-colors">Тарифы</a></li>
-              <li><a href="#demo" className="hover:text-primary transition-colors">Примеры</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-3 md:mb-4 text-sm sm:text-base">Компания</h4>
-            <ul className="space-y-2 md:space-y-3 text-xs sm:text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">О нас</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Контакты</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Политика конфиденциальности</a></li>
-            </ul>
           </div>
 
           <div>
