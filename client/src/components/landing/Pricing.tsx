@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-  CardFooter,
 } from "@/components/ui/card";
 import { fetchTariffs, type Tariff } from "@/api/tariffs";
 
@@ -78,7 +76,7 @@ export default function Pricing() {
         )}
 
         {hasTariffs && (
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {tariffs.map((tariff) => {
               const minutesLabel = new Intl.NumberFormat("ru-RU").format(
                 tariff.minMinutes,
@@ -121,11 +119,7 @@ export default function Pricing() {
                       </li>
                     </ul>
                   </CardContent>
-                  <CardFooter className="pt-6 pb-8">
-                    <Button className="w-full rounded-full">
-                      Выбрать пакет
-                    </Button>
-                  </CardFooter>
+                  
                 </Card>
               );
             })}
