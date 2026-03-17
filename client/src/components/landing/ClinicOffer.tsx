@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { submitSpecialOfferApplication } from "@/api/special-offer";
 
 type FormState = {
   clinicName: string;
@@ -99,16 +100,32 @@ export default function ClinicOffer() {
 
     setSubmitting(true);
 
-    // Бэкенд ещё не готов — пока просто имитируем успешную отправку.
-    await new Promise((r) => setTimeout(r, 400));
+    try {
+      const clinicName = form.clinicName.trim();
+      const inn = form.inn.trim();
+      const clinicInfo = inn.length > 0 ? `${clinicName}, ИНН ${inn}` : clinicName;
 
-    toast({
-      title: "Заявка отправлена",
-      description: "Мы свяжемся с вами в ближайшее время.",
-    });
+      await submitSpecialOfferApplication({
+        clinicInfo,
+        contactPhone: `+${ruPhoneDigits}`,
+        requestDescription: form.message.trim(),
+      });
 
-    setForm(initialState);
-    setSubmitting(false);
+      toast({
+        title: "Заявка отправлена",
+        description: "Мы свяжемся с вами в ближайшее время.",
+      });
+
+      setForm(initialState);
+    } catch (err) {
+      toast({
+        title: "Не удалось отправить заявку",
+        description: "Проверьте соединение и попробуйте ещё раз.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
