@@ -7,6 +7,7 @@ import DemoReport from "@/components/landing/DemoReport";
 import FeaturesGrid from "@/components/landing/FeaturesGrid";
 import BenefitsSummary from "@/components/landing/BenefitsSummary";
 import Pricing from "@/components/landing/Pricing";
+import ClinicOffer from "@/components/landing/ClinicOffer";
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/landing/Footer";
 
@@ -28,6 +29,7 @@ export default function Home() {
           <FeaturesGrid />
           <BenefitsSummary />
           <Pricing />
+          <ClinicOffer />
           <FAQ />
         </main>
         <Footer />
