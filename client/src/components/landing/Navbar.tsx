@@ -11,6 +11,8 @@ export default function Navbar() {
     { name: "Функции", href: "#features" },
     { name: "Как работает", href: "#how-it-works" },
     { name: "Примеры", href: "#demo" },
+    { name: "Тарифы", href: "#pricing" },
+    { name: "Подключить клинику", href: "#clinic-offer" },
     { name: "FAQ", href: "#faq" },
     { name: "Контакты", href: "#footer" },
   ];
