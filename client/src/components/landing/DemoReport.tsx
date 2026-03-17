@@ -17,22 +17,35 @@ export default function DemoReport() {
           >
             <div className="mb-6 md:mb-8">
               <span className="text-xs font-mono text-primary/60 border border-primary/20 px-2 py-1 rounded mb-3 md:mb-4 inline-block">
-                OUTPUT_PREVIEW
+                ПРИМЕР ОТЧЁТА
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tight">
-                Результат работы AI
+                Что формирует система
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Врач получает полностью структурированный документ, готовый к печати или отправке пациенту.
+                Сервис автоматически выделяет ключевые элементы консультации и
+                превращает их в структурированный медицинский документ.
               </p>
             </div>
             
             <div className="space-y-3 md:space-y-4">
               {[
-                { label: "Жалобы", text: "Анализ симптомов и истории боли" },
-                { label: "Объективно", text: "Описание клинической картины" },
-                { label: "План", text: "Сгенерированный протокол лечения" },
-                { label: "Итог", text: "Рекомендации для пациента" }
+                {
+                  label: "Жалобы",
+                  text: "AI автоматически выделяет жалобы и ключевые симптомы пациента.",
+                },
+                {
+                  label: "Объективный статус",
+                  text: "Формируется объективный статус и клиническая картина приёма.",
+                },
+                {
+                  label: "План лечения",
+                  text: "Создаётся структурированный план лечения и последующие шаги.",
+                },
+                {
+                  label: "Карта пациента и рекомендации",
+                  text: "Заполняется карта пациента и даются рекомендации по AI‑оценке консультации (Калгари‑Кембридж).",
+                },
               ].map((item, i) => (
                 <motion.div 
                   key={i}

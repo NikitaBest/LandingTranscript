@@ -16,18 +16,18 @@ import { motion } from "framer-motion";
 
 export default function FeaturesGrid() {
   const features = [
-    { icon: <Mic />, title: "Запись онлайн", desc: "Высокое качество" },
-    { icon: <Bot />, title: "Авто-транскрибация", desc: "Мгновенный текст" },
-    { icon: <BrainCircuit />, title: "LLM-обработка", desc: "Умный анализ" },
-    { icon: <Layout />, title: "Структура", desc: "Чёткие поля" },
-    { icon: <Edit3 />, title: "Редактор", desc: "Быстрые правки" },
-    { icon: <RefreshCw />, title: "Регенерация", desc: "Повторный анализ" },
-    { icon: <FolderOpen />, title: "Карточки", desc: "База пациентов" },
-    { icon: <History />, title: "История", desc: "Архив записей" },
-    { icon: <FileText />, title: "PDF Экспорт", desc: "Готовые документы" },
-    { icon: <Link2 />, title: "Публичные ссылки", desc: "Доступ пациенту" },
-    { icon: <Smartphone />, title: "Multi-platform", desc: "Web + Telegram" },
-    { icon: <ShieldCheck />, title: "Защита", desc: "Шифрование" },
+    { icon: <Mic />, title: "Запись консультации", desc: "Через браузер, без установки" },
+    { icon: <Bot />, title: "Авто‑транскрибация", desc: "Речь врача и пациента в текст" },
+    { icon: <BrainCircuit />, title: "AI‑обработка", desc: "Глубокий анализ и структура" },
+    { icon: <Layout />, title: "Структура документа", desc: "Разделы жалоб, статуса и плана" },
+    { icon: <Edit3 />, title: "Удобный редактор", desc: "Быстрые правки перед сохранением" },
+    { icon: <RefreshCw />, title: "Пересчёт отчёта", desc: "Повторный анализ при изменениях" },
+    { icon: <FolderOpen />, title: "Карточки пациентов", desc: "Хранение истории консультаций" },
+    { icon: <History />, title: "История приёмов", desc: "Хронология всех визитов" },
+    { icon: <FileText />, title: "Экспорт отчётов", desc: "Файлы и печать для карты" },
+    { icon: <Link2 />, title: "Ссылки для пациента", desc: "Быстрая передача рекомендаций" },
+    { icon: <Smartphone />, title: "Работает везде", desc: "Браузер на компьютере и телефоне" },
+    { icon: <ShieldCheck />, title: "Защита данных", desc: "Безопасное хранение информации" },
   ];
 
   return (
@@ -44,8 +44,8 @@ export default function FeaturesGrid() {
           </div>
           <div className="hidden md:block">
             <div className="text-right text-sm font-mono text-muted-foreground">
-              SYSTEM_VERSION: 2.0.4<br/>
-              STATUS: ONLINE
+              Версия системы: 2.0.4<br/>
+              Статус: онлайн
             </div>
           </div>
         </div>
