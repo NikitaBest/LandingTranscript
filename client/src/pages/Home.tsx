@@ -8,7 +8,6 @@ import FeaturesGrid from "@/components/landing/FeaturesGrid";
 import BenefitsSummary from "@/components/landing/BenefitsSummary";
 import Pricing from "@/components/landing/Pricing";
 import ClinicOffer from "@/components/landing/ClinicOffer";
-import PersonalDataDoc from "@/components/landing/PersonalDataDoc";
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/landing/Footer";
 
@@ -31,7 +30,6 @@ export default function Home() {
           <BenefitsSummary />
           <Pricing />
           <ClinicOffer />
-          <PersonalDataDoc />
           <FAQ />
         </main>
         <Footer />

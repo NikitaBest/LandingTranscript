@@ -6,6 +6,8 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 
+const PERSONAL_DATA_DOC_URL =
+  "https://s3.twcstorage.ru/odonta/prod/documents/%D0%A1%D0%BE%D0%B3%D0%BB%D0%B0%D1%81%D0%B8%D0%B5_%D0%BD%D0%B0%C2%A0%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83_%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85_%D0%B4%D0%BB%D1%8F_%D0%B2%D1%80%D0%B0%D1%87%D0%B0_%D0%B8_%D0%BF%D0%B0%D1%86%D0%B8%D0%B5%D0%BD%D1%82%D0%B0.docx";
 export default function FAQ() {
   const faqs = [
     {
@@ -19,6 +21,30 @@ export default function FAQ() {
     {
       q: "Сколько идёт обработка?",
       a: "Обычно 20–40 секунд в зависимости от длительности записи.",
+    },
+    {
+      q: "Нужно ли пациенту подписывать соглашение об обработке персональных данных?",
+      a: (
+        <div className="space-y-3">
+          <p>
+            Да. Для работы с сервисом пациенту нужно подписать согласие на
+            обработку персональных данных. Вы можете использовать готовый шаблон.
+          </p>
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-full text-sm px-4 h-9"
+          >
+            <a
+              href={PERSONAL_DATA_DOC_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Скачать шаблон согласия
+            </a>
+          </Button>
+        </div>
+      ),
     },
     {
       q: "Нужна ли установка приложения?",
