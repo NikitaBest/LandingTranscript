@@ -53,10 +53,10 @@ export default function Pricing() {
   const hasTariffs = tariffs.length > 0;
 
   return (
-    <section id="pricing" className="py-24 bg-white">
+    <section id="pricing" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Оплачивайте только использованные минуты
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
@@ -76,7 +76,7 @@ export default function Pricing() {
         )}
 
         {hasTariffs && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {tariffs.map((tariff) => {
               const minutesLabel = new Intl.NumberFormat("ru-RU").format(
                 tariff.minMinutes,
@@ -90,12 +90,12 @@ export default function Pricing() {
                   key={tariff.id}
                   className="relative flex flex-col border-border shadow-sm hover:shadow-md"
                 >
-                  <CardHeader className="text-center pt-8">
-                    <CardTitle className="text-xl mb-2">
+                  <CardHeader className="text-center pt-6 sm:pt-8">
+                    <CardTitle className="text-lg sm:text-xl mb-2">
                       Пакет от {minutesLabel} мин
                     </CardTitle>
                     <div className="flex justify-center items-baseline gap-1">
-                      <span className="text-4xl font-bold">
+                      <span className="text-3xl sm:text-4xl font-bold">
                         {pricePerMinuteLabel} ₽
                       </span>
                       <span className="text-muted-foreground text-base">

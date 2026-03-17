@@ -10,7 +10,7 @@ export default function PersonalDataDoc() {
     <section id="personal-data-doc" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
-          <h3 className="text-2xl md:text-3xl font-bold mb-3">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">
             Шаблон документа о персональных данных
           </h3>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
@@ -20,20 +20,20 @@ export default function PersonalDataDoc() {
         </div>
 
         <Card className="max-w-3xl mx-auto border-border shadow-sm">
-          <CardHeader className="flex flex-row items-center justify-between gap-4">
+          <CardHeader className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-lg border border-border bg-muted/40 flex items-center justify-center">
                 <FileText className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <CardTitle className="text-xl">
+                <CardTitle className="text-lg sm:text-xl">
                   Согласие на обработку персональных данных
                 </CardTitle>
                 <div className="text-sm text-muted-foreground">Формат: .docx</div>
               </div>
             </div>
 
-            <Button asChild className="rounded-full">
+            <Button asChild className="rounded-full w-full sm:w-auto">
               <a
                 href={PERSONAL_DATA_DOC_URL}
                 target="_blank"

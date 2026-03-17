@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { submitSpecialOfferApplication } from "@/api/special-offer";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type FormState = {
   clinicName: string;
@@ -23,6 +24,7 @@ const initialState: FormState = {
 
 export default function ClinicOffer() {
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   const [form, setForm] = useState<FormState>(initialState);
   const [submitting, setSubmitting] = useState(false);
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
@@ -132,7 +134,7 @@ export default function ClinicOffer() {
     <section id="clinic-offer" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
-          <h3 className="text-2xl md:text-3xl font-bold mb-3">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">
             Спецпредложение для клиник
           </h3>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
@@ -142,18 +144,21 @@ export default function ClinicOffer() {
         </div>
 
         <Card className="max-w-3xl mx-auto border-border shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-xl">Форма заявки</CardTitle>
+          <CardHeader className="pb-4">
+            <CardTitle className="text-lg sm:text-xl">Форма заявки</CardTitle>
           </CardHeader>
-          <CardContent>
-            <form onSubmit={onSubmit} className="grid gap-5">
+          <CardContent className="px-4 sm:px-6">
+            <form onSubmit={onSubmit} className="grid gap-4 sm:gap-5">
               <div className="grid gap-2">
                 <Label htmlFor="clinicName">Название клиники</Label>
                 <Input
                   id="clinicName"
                   value={form.clinicName}
                   onChange={(e) => onChange("clinicName", e.target.value)}
-                  placeholder="Например: Стоматология «Здоровая улыбка»"
+                  className="h-11"
+                  placeholder={
+                    isMobile ? "Например: «Здоровая улыбка»" : "Например: Стоматология «Здоровая улыбка»"
+                  }
                   autoComplete="organization"
                   required
                 />
@@ -166,7 +171,8 @@ export default function ClinicOffer() {
                     id="inn"
                     value={form.inn}
                     onChange={(e) => onChange("inn", e.target.value)}
-                    placeholder="Например: 7707083893"
+                    className="h-11"
+                    placeholder={isMobile ? "7707083893" : "Например: 7707083893"}
                     inputMode="numeric"
                   />
                 </div>
@@ -181,7 +187,8 @@ export default function ClinicOffer() {
                         onChange("phone", formatRuPhone(ruPhoneDigits));
                       }
                     }}
-                    placeholder="+7 (___) ___-__-__"
+                    className="h-11"
+                    placeholder={isMobile ? "+7 999 123-45-67" : "+7 (___) ___-__-__"}
                     inputMode="tel"
                     autoComplete="tel"
                     aria-invalid={!!phoneError}
@@ -203,9 +210,13 @@ export default function ClinicOffer() {
                     onChange("message", e.target.value);
                     resizeMessageTextarea();
                   }}
-                  className="resize-none"
+                  className="resize-none text-base"
                   rows={3}
-                  placeholder="Например: хотим подключить 10 врачей, нужна интеграция и условия на объём."
+                  placeholder={
+                    isMobile
+                      ? "Например: подключить 10 врачей, нужны условия на объём."
+                      : "Например: хотим подключить 10 врачей, нужна интеграция и условия на объём."
+                  }
                   required
                 />
               </div>
@@ -213,7 +224,7 @@ export default function ClinicOffer() {
               <div className="flex justify-center pt-2">
                 <Button
                   type="submit"
-                  className="rounded-full px-8"
+                  className="rounded-full px-8 w-full sm:w-auto"
                   disabled={!canSubmit}
                 >
                   {submitting ? "Отправляем..." : "Отправить заявку"}
