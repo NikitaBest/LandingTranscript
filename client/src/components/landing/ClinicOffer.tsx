@@ -7,6 +7,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { submitSpecialOfferApplication } from "@/api/special-offer";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  CONSENT_MARKETING_DOC,
+  CONSENT_PROCESSING_DOC,
+  POLICY_DOC_VIEW,
+} from "@/lib/legal-links";
 
 type FormState = {
   clinicName: string;
@@ -26,6 +32,8 @@ export default function ClinicOffer() {
   const { toast } = useToast();
   const isMobile = useIsMobile();
   const [form, setForm] = useState<FormState>(initialState);
+  const [consentPersonalData, setConsentPersonalData] = useState(false);
+  const [consentMarketing, setConsentMarketing] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const messageRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -61,8 +69,14 @@ export default function ClinicOffer() {
     const clinicNameOk = form.clinicName.trim().length > 0;
     const phoneOk = form.phone.trim().length > 0 && phoneIsValid;
     const messageOk = form.message.trim().length > 0;
-    return clinicNameOk && phoneOk && messageOk && !submitting;
-  }, [form, phoneIsValid, submitting]);
+    return (
+      clinicNameOk &&
+      phoneOk &&
+      messageOk &&
+      consentPersonalData &&
+      !submitting
+    );
+  }, [form, phoneIsValid, consentPersonalData, submitting]);
 
   function onChange<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -119,6 +133,8 @@ export default function ClinicOffer() {
       });
 
       setForm(initialState);
+      setConsentPersonalData(false);
+      setConsentMarketing(false);
     } catch (err) {
       toast({
         title: "Не удалось отправить заявку",
@@ -219,6 +235,70 @@ export default function ClinicOffer() {
                   }
                   required
                 />
+              </div>
+
+              <div className="space-y-4 pt-1">
+                <p className="text-xs text-muted-foreground">
+                  Согласия (галочки не проставляются автоматически)
+                </p>
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="consent-personal-data"
+                    checked={consentPersonalData}
+                    onCheckedChange={(v) => setConsentPersonalData(v === true)}
+                    className="mt-0.5"
+                  />
+                  <label
+                    htmlFor="consent-personal-data"
+                    className="text-sm text-foreground leading-relaxed cursor-pointer"
+                  >
+                    Я даю{" "}
+                    <a
+                      href={CONSENT_PROCESSING_DOC}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary underline underline-offset-2"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      согласие
+                    </a>{" "}
+                    на обработку моих персональных данных согласно{" "}
+                    <a
+                      href={POLICY_DOC_VIEW}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary underline underline-offset-2"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Политике
+                    </a>
+                    .
+                  </label>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="consent-marketing"
+                    checked={consentMarketing}
+                    onCheckedChange={(v) => setConsentMarketing(v === true)}
+                    className="mt-0.5"
+                  />
+                  <label
+                    htmlFor="consent-marketing"
+                    className="text-sm text-foreground leading-relaxed cursor-pointer"
+                  >
+                    Я даю{" "}
+                    <a
+                      href={CONSENT_MARKETING_DOC}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary underline underline-offset-2"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      согласие
+                    </a>{" "}
+                    на рекламную рассылку
+                  </label>
+                </div>
               </div>
 
               <div className="flex justify-center pt-2">
