@@ -10,11 +10,14 @@ import {
   getDocumentFileUrl,
   getCategoryLabel,
 } from "@/data/documents";
+import { getDocumentInlineContent } from "@/content/documents";
+import DocumentTextContent from "@/components/landing/DocumentTextContent";
 
 export default function DocumentDetail() {
   const [, params] = useRoute("/documents/:slug");
   const slug = params?.slug ?? "";
   const doc = getDocumentBySlug(slug);
+  const inlineContent = getDocumentInlineContent(slug);
 
   if (!doc) {
     return <NotFound />;
@@ -26,7 +29,7 @@ export default function DocumentDetail() {
 
   return (
     <DocumentsLayout>
-      <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
         <Link
           href="/documents"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6"
@@ -53,7 +56,7 @@ export default function DocumentDetail() {
               {doc.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <Button asChild className="rounded-full">
                 <a href={fileUrl} download={doc.filename}>
                   <Download className="h-4 w-4" />
@@ -68,6 +71,8 @@ export default function DocumentDetail() {
                 </Button>
               )}
             </div>
+
+            {inlineContent && <DocumentTextContent content={inlineContent} />}
           </CardContent>
         </Card>
       </div>
