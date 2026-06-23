@@ -1,9 +1,6 @@
 import { MessageCircle, FileText, Mail, Phone, Clock } from "lucide-react";
-import {
-  CONSENT_MARKETING_DOC,
-  CONSENT_PROCESSING_DOC,
-  POLICY_DOC_VIEW,
-} from "@/lib/legal-links";
+import { Link } from "wouter";
+import { getDocumentPageUrl } from "@/data/documents";
 
 export default function Footer() {
   return (
@@ -48,37 +45,39 @@ export default function Footer() {
             <h4 className="font-bold mb-3 md:mb-4 text-sm sm:text-base">Документы</h4>
             <ul className="space-y-2 md:space-y-3 text-xs sm:text-sm text-muted-foreground">
               <li>
-                <a
-                  href="https://disk.yandex.ru/i/gR-kkCkmWEgl4A"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/documents/rukovodstvo-polzovatelya"
                   className="hover:text-primary transition-colors inline-flex items-center gap-2"
                 >
                   <FileText className="w-4 h-4" />
                   <span>Руководство пользователя</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://disk.yandex.ru/i/_fCSWhmA-mHA8g"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/documents/instrukciya-po-ustanovke"
                   className="hover:text-primary transition-colors inline-flex items-center gap-2"
                 >
                   <FileText className="w-4 h-4" />
                   <span>Инструкция по установке</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://disk.yandex.ru/i/t2Sg9UIdcsILRQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/documents/opisanie-funkcionalnyh-harakteristik"
                   className="hover:text-primary transition-colors inline-flex items-center gap-2"
                 >
                   <FileText className="w-4 h-4" />
                   <span>Описание функциональных характеристик</span>
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/documents"
+                  className="hover:text-primary transition-colors inline-flex items-center gap-2 font-medium text-foreground/80"
+                >
+                  <span>Все документы →</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -124,36 +123,30 @@ export default function Footer() {
         <div className="border-t border-border pt-6 md:pt-8 text-center text-xs sm:text-sm text-muted-foreground space-y-3">
           <p>© {new Date().getFullYear()} Odonta AI. Все права защищены.</p>
           <nav className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
-            <a
-              href={POLICY_DOC_VIEW}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={getDocumentPageUrl("politika-obrabotki-pd")}
               className="hover:text-primary transition-colors underline underline-offset-4"
             >
               Политика обработки ПД
-            </a>
+            </Link>
             <span className="text-border hidden sm:inline" aria-hidden>
               ·
             </span>
-            <a
-              href={CONSENT_PROCESSING_DOC}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={getDocumentPageUrl("soglasie-obrabotka-pd")}
               className="hover:text-primary transition-colors underline underline-offset-4"
             >
               Согласие на обработку ПД
-            </a>
+            </Link>
             <span className="text-border hidden sm:inline" aria-hidden>
               ·
             </span>
-            <a
-              href={CONSENT_MARKETING_DOC}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={getDocumentPageUrl("soglasie-reklamnaya-rassylka")}
               className="hover:text-primary transition-colors underline underline-offset-4"
             >
               Согласие на рекламную рассылку
-            </a>
+            </Link>
           </nav>
         </div>
 

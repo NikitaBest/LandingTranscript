@@ -8,11 +8,8 @@ import { useToast } from "@/hooks/use-toast";
 import { submitSpecialOfferApplication } from "@/api/special-offer";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  CONSENT_MARKETING_DOC,
-  CONSENT_PROCESSING_DOC,
-  POLICY_DOC_VIEW,
-} from "@/lib/legal-links";
+import { Link } from "wouter";
+import { getDocumentPageUrl } from "@/data/documents";
 
 type FormState = {
   clinicName: string;
@@ -253,25 +250,21 @@ export default function ClinicOffer() {
                     className="text-sm text-foreground leading-relaxed cursor-pointer"
                   >
                     Я даю{" "}
-                    <a
-                      href={CONSENT_PROCESSING_DOC}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={getDocumentPageUrl("soglasie-obrabotka-pd")}
                       className="text-primary underline underline-offset-2"
                       onClick={(e) => e.stopPropagation()}
                     >
                       согласие
-                    </a>{" "}
+                    </Link>{" "}
                     на обработку моих персональных данных согласно{" "}
-                    <a
-                      href={POLICY_DOC_VIEW}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={getDocumentPageUrl("politika-obrabotki-pd")}
                       className="text-primary underline underline-offset-2"
                       onClick={(e) => e.stopPropagation()}
                     >
                       Политике
-                    </a>
+                    </Link>
                     .
                   </label>
                 </div>
@@ -287,15 +280,13 @@ export default function ClinicOffer() {
                     className="text-sm text-foreground leading-relaxed cursor-pointer"
                   >
                     Я даю{" "}
-                    <a
-                      href={CONSENT_MARKETING_DOC}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={getDocumentPageUrl("soglasie-reklamnaya-rassylka")}
                       className="text-primary underline underline-offset-2"
                       onClick={(e) => e.stopPropagation()}
                     >
                       согласие
-                    </a>{" "}
+                    </Link>{" "}
                     на рекламную рассылку
                   </label>
                 </div>
