@@ -6,15 +6,19 @@ import Home from "@/pages/Home";
 import Documents from "@/pages/Documents";
 import DocumentDetail from "@/pages/DocumentDetail";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollToTop from "@/components/ScrollToTop";
 
 function Router() {
   return (
-    <Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
       <Route path="/" component={Home} />
       <Route path="/documents/:slug" component={DocumentDetail} />
       <Route path="/documents" component={Documents} />
       <Route component={NotFound} />
-    </Switch>
+      </Switch>
+    </>
   );
 }
 

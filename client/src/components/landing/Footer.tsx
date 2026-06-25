@@ -1,6 +1,19 @@
 import { MessageCircle, FileText, Mail, Phone, Clock } from "lucide-react";
 import { Link } from "wouter";
-import { getDocumentPageUrl } from "@/data/documents";
+import {
+  getDocumentBySlug,
+  getDocumentFileUrl,
+  getDocumentPageUrl,
+} from "@/data/documents";
+
+const footerProductDocuments = [
+  { slug: "rukovodstvo-polzovatelya", label: "Руководство пользователя" },
+  { slug: "instrukciya-po-ustanovke", label: "Инструкция по установке" },
+  {
+    slug: "opisanie-funkcionalnyh-harakteristik",
+    label: "Описание функциональных характеристик",
+  },
+] as const;
 
 export default function Footer() {
   return (
@@ -44,33 +57,24 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-3 md:mb-4 text-sm sm:text-base">Документы</h4>
             <ul className="space-y-2 md:space-y-3 text-xs sm:text-sm text-muted-foreground">
-              <li>
-                <Link
-                  href="/documents/rukovodstvo-polzovatelya"
-                  className="hover:text-primary transition-colors inline-flex items-center gap-2"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Руководство пользователя</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/documents/instrukciya-po-ustanovke"
-                  className="hover:text-primary transition-colors inline-flex items-center gap-2"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Инструкция по установке</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/documents/opisanie-funkcionalnyh-harakteristik"
-                  className="hover:text-primary transition-colors inline-flex items-center gap-2"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Описание функциональных характеристик</span>
-                </Link>
-              </li>
+              {footerProductDocuments.map(({ slug, label }) => {
+                const doc = getDocumentBySlug(slug);
+                if (!doc) return null;
+
+                return (
+                  <li key={slug}>
+                    <a
+                      href={getDocumentFileUrl(doc.filename)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors inline-flex items-center gap-2"
+                    >
+                      <FileText className="w-4 h-4" />
+                      <span>{label}</span>
+                    </a>
+                  </li>
+                );
+              })}
               <li>
                 <Link
                   href="/documents"
