@@ -3,10 +3,14 @@ import { Link, useLocation } from "wouter";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
+import {
+  PENDING_SECTION_SCROLL_KEY,
+  scrollToHashElement,
+} from "@/lib/scroll";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
 
   const navLinks = [
     { name: "Функции", href: "#features" },
@@ -19,17 +23,17 @@ export default function Navbar() {
     { name: "Контакты", href: "#footer" },
   ];
 
-  function resolveHref(href: string, isPage?: boolean) {
-    if (isPage) return href;
-    return location === "/" ? href : `/${href}`;
-  }
+  const navigateToSection = (href: string) => {
+    setIsOpen(false);
 
-  const scrollToSection = (id: string) => {
-    const element = document.querySelector(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
+    if (location === "/") {
+      window.history.replaceState(null, "", href);
+      scrollToHashElement(href);
+      return;
     }
+
+    sessionStorage.setItem(PENDING_SECTION_SCROLL_KEY, href);
+    setLocation("/");
   };
 
   return (
@@ -61,13 +65,7 @@ export default function Navbar() {
             ) : (
               <button
                 key={link.name}
-                onClick={() => {
-                  if (location === "/") {
-                    scrollToSection(link.href);
-                  } else {
-                    window.location.href = resolveHref(link.href);
-                  }
-                }}
+                onClick={() => navigateToSection(link.href)}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {link.name}
@@ -111,13 +109,7 @@ export default function Navbar() {
                   ) : (
                     <button
                       key={link.name}
-                      onClick={() => {
-                        if (location === "/") {
-                          scrollToSection(link.href);
-                        } else {
-                          window.location.href = resolveHref(link.href);
-                        }
-                      }}
+                      onClick={() => navigateToSection(link.href)}
                       className="text-lg font-medium text-left"
                     >
                       {link.name}

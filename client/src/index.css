@@ -85,4 +85,9 @@
   .animate-scanline {
     animation: scanline 8s linear infinite;
   }
+
+  section[id],
+  footer[id] {
+    scroll-margin-top: 5.5rem;
+  }
 }
